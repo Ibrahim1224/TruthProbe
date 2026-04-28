@@ -114,8 +114,8 @@ truthprobe/
 
 ## 👥 Team
 
-Built by **[Your Team Name]**
+Built by OpenOPs
 
 ---
 
-*Built with ❤️ using Flask, Google Gemini, Chart.js, and a commitment to AI fairness.*
+*Built with  Flask, Google Gemini, Chart.js, and a commitment to AI fairness.*
