@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthProbe — Testing AI Honesty Across Demographics</title>
+    <meta name="description" content="Systematically audit AI systems for demographic bias. TruthProbe probes Gemini with identical questions across demographic groups and measures response fairness.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Marked.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+</head>
+<body>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- PARTICLE CANVAS BACKGROUND                                        -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- NAVIGATION                                                        -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-brand">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-title">TruthProbe</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#categories" class="nav-link">Audit</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1: HERO                                                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll">
+                <span class="badge-dot"></span>
+                Testing AI Honesty Across Demographics
+            </div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="title-line">Audit AI for</span>
+                <span class="title-line gradient-text" id="typewriter-target">Demographic Bias</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">
+                TruthProbe probes Google Gemini with <strong>identical questions</strong> across different 
+                demographic groups — measuring response length, sentiment, encouragement, and tone — 
+                then asks the AI to <strong>explain its own bias</strong>.
+            </p>
+            <div class="hero-actions animate-on-scroll">
+                <a href="#categories" class="btn btn-primary btn-lg" id="start-audit-btn">
+                    <span class="btn-icon">⚡</span>
+                    Start Bias Audit
+                </a>
+                <a href="#how-it-works" class="btn btn-ghost btn-lg">
+                    Learn More →
+                </a>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat-item">
+                    <span class="stat-value" data-count="4">0</span>
+                    <span class="stat-label">Test Categories</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value" data-count="20">0</span>
+                    <span class="stat-label">Demographics Tested</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value" data-count="5">0</span>
+                    <span class="stat-label">Bias Metrics</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2: HOW IT WORKS                                           -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="how-it-works" class="section how-it-works-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Methodology</span>
+                <h2 class="section-title">How TruthProbe Works</h2>
+                <p class="section-desc">A systematic approach to uncovering hidden AI bias</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card animate-on-scroll" style="--delay: 0">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">📤</div>
+                    <h3>Probe</h3>
+                    <p>Send the <strong>same question</strong> to Gemini with different demographic framings — gender, race, age, socioeconomic status.</p>
+                </div>
+                <div class="step-connector animate-on-scroll">→</div>
+                <div class="step-card animate-on-scroll" style="--delay: 1">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">📊</div>
+                    <h3>Measure</h3>
+                    <p>Score responses on <strong>length, sentiment, encouragement</strong>, and discouragement using NLP analysis.</p>
+                </div>
+                <div class="step-connector animate-on-scroll">→</div>
+                <div class="step-card animate-on-scroll" style="--delay: 2">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🤖</div>
+                    <h3>Self-Analyze</h3>
+                    <p>Ask Gemini to <strong>review its own responses</strong> and rate the fairness of each — AI auditing AI.</p>
+                </div>
+                <div class="step-connector animate-on-scroll">→</div>
+                <div class="step-card animate-on-scroll" style="--delay: 3">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">⚖️</div>
+                    <h3>Verdict</h3>
+                    <p>Generate an <strong>overall fairness score</strong>, identify biased areas, and provide actionable recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3: CATEGORY SELECTION                                     -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="categories" class="section categories-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Bias Categories</span>
+                <h2 class="section-title">Choose Your Audit</h2>
+                <p class="section-desc">Select one or more categories to test for demographic bias</p>
+            </div>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Dynamically populated -->
+            </div>
+            <div class="audit-controls animate-on-scroll">
+                <button class="btn btn-primary btn-lg" id="run-selected-btn" disabled>
+                    <span class="btn-icon">▶</span>
+                    <span id="run-btn-text">Select a Category</span>
+                </button>
+                <button class="btn btn-outline btn-lg" id="run-all-btn">
+                    <span class="btn-icon">⚡</span>
+                    Run All Categories
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4: LIVE AUDIT PROGRESS                                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="audit-progress" class="section audit-section hidden">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag pulse-tag">Live Audit</span>
+                <h2 class="section-title">Auditing in Progress</h2>
+            </div>
+
+            <!-- Progress Ring -->
+            <div class="progress-container">
+                <div class="progress-ring-wrapper">
+                    <svg class="progress-ring" viewBox="0 0 200 200">
+                        <circle class="progress-ring-bg" cx="100" cy="100" r="88" />
+                        <circle class="progress-ring-fill" id="progress-ring-fill" cx="100" cy="100" r="88" />
+                    </svg>
+                    <div class="progress-center">
+                        <span class="progress-percent" id="progress-percent">0%</span>
+                        <span class="progress-label" id="progress-label">Starting...</span>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress-category" id="progress-category">Preparing audit...</div>
+                    <div class="progress-demographic" id="progress-demographic"></div>
+                </div>
+            </div>
+
+            <!-- Live Feed -->
+            <div class="live-feed" id="live-feed">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 5: RESULTS DASHBOARD                                      -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="results" class="section results-section hidden">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Analysis</span>
+                <h2 class="section-title">Bias Report</h2>
+            </div>
+
+            <!-- Results tabs for multi-category -->
+            <div class="results-tabs" id="results-tabs">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Metric Cards Row -->
+            <div class="metrics-row" id="metrics-row">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <div class="chart-card animate-on-scroll">
+                    <h3 class="chart-title">Response Length by Demographic</h3>
+                    <canvas id="chart-length"></canvas>
+                </div>
+                <div class="chart-card animate-on-scroll">
+                    <h3 class="chart-title">Sentiment Score by Demographic</h3>
+                    <canvas id="chart-sentiment"></canvas>
+                </div>
+                <div class="chart-card animate-on-scroll">
+                    <h3 class="chart-title">Encouragement vs Discouragement</h3>
+                    <canvas id="chart-enc-disc"></canvas>
+                </div>
+                <div class="chart-card animate-on-scroll">
+                    <h3 class="chart-title">Bias Radar — Multi-Metric View</h3>
+                    <canvas id="chart-radar"></canvas>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="data-table-wrapper animate-on-scroll">
+                <h3 class="chart-title">Detailed Metrics Table</h3>
+                <div class="table-scroll">
+                    <table class="data-table" id="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Demographic</th>
+                                <th>Response Length</th>
+                                <th>Sentiment</th>
+                                <th>Label</th>
+                                <th>Encouragement</th>
+                                <th>Discouragement</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metrics-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 6: AI SELF-ANALYSIS                                       -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="analysis" class="section analysis-section hidden">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Self-Analysis</span>
+                <h2 class="section-title">Gemini Reviews Its Own Bias</h2>
+                <p class="section-desc">The AI examines its responses and provides fairness scores</p>
+            </div>
+
+            <!-- Fairness Gauges -->
+            <div class="gauges-row" id="gauges-row">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Analysis Text -->
+            <div class="analysis-card glass-card" id="analysis-card">
+                <div class="analysis-header">
+                    <span class="analysis-icon">🤖</span>
+                    <h3>Gemini's Fairness Analysis</h3>
+                </div>
+                <div class="analysis-body" id="analysis-text">
+                    <!-- Typewriter reveal -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 7: VERDICT                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="verdict" class="section verdict-section hidden">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Final Verdict</span>
+                <h2 class="section-title">Overall Bias Assessment</h2>
+            </div>
+
+            <div class="verdict-grid">
+                <!-- Verdict Gauge -->
+                <div class="verdict-gauge-wrapper animate-on-scroll">
+                    <canvas id="verdict-gauge"></canvas>
+                </div>
+
+                <!-- Verdict Banner -->
+                <div class="verdict-info animate-on-scroll">
+                    <div class="verdict-banner" id="verdict-banner">
+                        <div class="verdict-label" id="verdict-label">Analyzing...</div>
+                        <div class="verdict-score" id="verdict-score">—/10</div>
+                        <div class="verdict-desc" id="verdict-desc"></div>
+                    </div>
+
+                    <!-- Category Breakdown -->
+                    <div class="category-breakdown" id="category-breakdown">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations-card glass-card animate-on-scroll" id="recommendations-card">
+                <div class="analysis-header">
+                    <span class="analysis-icon">🛠</span>
+                    <h3>Recommendations to Improve Fairness</h3>
+                </div>
+                <div class="analysis-body" id="recommendations-text">
+                    <!-- Populated after audit -->
+                </div>
+            </div>
+
+            <!-- Download Buttons -->
+            <div class="download-row animate-on-scroll">
+                <button class="btn btn-primary btn-lg" id="download-csv-btn">
+                    <span class="btn-icon">📄</span>
+                    Download Audit CSV
+                </button>
+                <button class="btn btn-outline btn-lg" id="download-txt-btn">
+                    <span class="btn-icon">📝</span>
+                    Download Analysis (.txt)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span>🔍</span> TruthProbe — Testing AI Honesty
+                </div>
+                <div class="footer-text">
+                    Built with ❤️ using Flask · Google Gemini · Chart.js · TextBlob
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- TOAST NOTIFICATIONS                                               -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/static/js/animations.js"></script>
+    <script src="/static/js/charts.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

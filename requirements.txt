@@ -1,0 +1,8 @@
+flask
+gunicorn
+google-genai
+pandas
+numpy
+textblob
+python-dotenv
+requests
